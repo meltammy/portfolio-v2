@@ -1,0 +1,68 @@
+@use "./style/_variables.scss" as *;
+@use "./style/_converters.scss" as *;
+
+.container {
+  display: grid;
+  gap: 2rem;
+
+  > div {
+    background-color: white;
+
+    max-width: toRem(800);
+    padding: 2rem;
+    border-radius: 2rem;
+
+    color: var(--dark-text-color);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      margin-left: 2rem;
+      font-size: 1.25rem;
+      text-align: center;
+    }
+
+    @media (max-width: $mobile-breakpoint) {
+      p {
+        font-size: 1rem;
+        margin: 0;
+      }
+    }
+  }
+}
+
+.figure {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.skills {
+  margin-top: 1rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.25rem;
+
+  b {
+    border: 2px var(--primary-color) solid;
+    border-radius: 0.25rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  @media (max-width: $mobile-breakpoint) {
+    b {
+      font-size: 1rem;
+    }
+  }
+}

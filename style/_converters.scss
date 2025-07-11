@@ -1,0 +1,5 @@
+@use "variables" as *;
+
+@function toRem($value) {
+  @return calc($value / $html-font-size) + rem;
+}

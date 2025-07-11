@@ -1,0 +1,35 @@
+@use "./style/_variables.scss" as *;
+
+.container {
+  width: 100%;
+  height: $header-height;
+  display: flex;
+  position: sticky;
+  top: 0;
+  left: 0;
+  justify-content: flex-end;
+  align-items: center;
+  scroll-snap-align: start;
+  z-index: 1;
+  padding-right: 2vw;
+  border-bottom: 2px var(--primary-color) solid;
+  background-color: var(--background-color);
+  box-shadow: var(--header-box-shadow);
+
+  nav {
+    display: flex;
+    gap: 2rem;
+  }
+
+  a {
+    font-size: 1.5rem;
+  }
+
+  @media (max-width: $mobile-breakpoint) {
+    height: $mobile-header-height;
+
+    a {
+      font-size: 1rem;
+    }
+  }
+}

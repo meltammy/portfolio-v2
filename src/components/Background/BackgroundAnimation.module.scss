@@ -1,0 +1,60 @@
+@use "sass:math";
+@use "./style/_converters.scss" as *;
+
+.container {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  z-index: -100;
+}
+
+.background {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  display: flex;
+  overflow: hidden;
+}
+
+$animationDuration: 100s;
+$amount: 40;
+$size: toRem(25);
+
+.background span {
+  width: 0;
+  height: 0;
+  top: 105vh;
+  border-top: $size solid transparent;
+  border-bottom: $size solid transparent;
+  border-left: $size solid var(--primary-color);
+  backface-visibility: hidden;
+  position: relative;
+  animation-name: up;
+  animation-duration: $animationDuration;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  @for $i from 1 through $amount {
+    &:nth-child(#{$i}) {
+      left: $i * 2%;
+      animation-duration: (
+          math.random(math.div(($animationDuration * 10), 10))
+        ) *
+        1s +
+        10s;
+      animation-delay: math.div(
+          math.random(($animationDuration + 10s) * 10),
+          10
+        ) *
+        -1s;
+    }
+  }
+}
+
+@keyframes up {
+  100% {
+    opacity: 0;
+    top: 30vh;
+    transform: translate3d(0, 0, 1px) rotate(660deg);
+  }
+}

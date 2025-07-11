@@ -1,0 +1,54 @@
+@use "./style/_variables.scss" as *;
+@use "./style/_converters.scss" as *;
+
+.container {
+  text-align: center;
+
+  h1 {
+    font-size: toRem(56);
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--primary-color);
+
+    margin-bottom: toRem(18);
+  }
+
+  h2 {
+    font-size: toRem(28);
+    font-weight: 400;
+    text-shadow: var(--background-color) 0px 0px 5px;
+    margin-bottom: toRem(48);
+  }
+
+  b {
+    color: var(--primary-color);
+  }
+
+  div {
+    max-width: toRem(600);
+  }
+
+  a {
+    padding: 0.5rem toRem(28);
+    font-size: toRem(28);
+    border-radius: 0.5rem;
+    border: none;
+    background-color: var(--primary-color);
+    color: var(--dark-text-color);
+    font-weight: 500;
+  }
+
+  @media (max-width: $mobile-breakpoint) {
+    h1 {
+      font-size: 2rem;
+    }
+
+    h2 {
+      font-size: 1rem;
+    }
+
+    a {
+      font-size: 1rem;
+    }
+  }
+}
