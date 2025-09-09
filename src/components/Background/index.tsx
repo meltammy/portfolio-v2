@@ -4,7 +4,7 @@ export function BackgroundAnimation() {
   return (
     <div className={styles.container}>
       <div className={styles.background}>
-        {[...Array(40)].map((_, index) => {
+        {[...Array(25)].map((_, index) => {
           return <span key={index} />;
         })}
       </div>

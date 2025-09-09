@@ -2,7 +2,7 @@
 @use "./style/_converters.scss" as *;
 
 $animationDuration: 100s;
-$amount: 40;
+$amount: 25;
 $size: toRem(25);
 
 .container {
@@ -21,7 +21,7 @@ $size: toRem(25);
 }
 
 .background span {
-  position: relative;
+  position: absolute;
   backface-visibility: hidden;
 
   width: 0;
@@ -37,7 +37,6 @@ $size: toRem(25);
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   will-change: transform, opacity;
-  transform-style: preserve-3d;
 
   @for $i from 1 through $amount {
     &:nth-child(#{$i}) {
@@ -49,9 +48,18 @@ $size: toRem(25);
 }
 
 @keyframes up {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.5;
+  }
+  85% {
+    opacity: 0.5;
+  }
   100% {
-    filter: opacity(0);
-    top: 30vh;
+    top: 40vh;
+    opacity: 0;
     transform: rotate(660deg);
   }
 }
