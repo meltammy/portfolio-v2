@@ -21,14 +21,16 @@ const backendSkills = [
   "Node.js",
   "Nest.js",
   "TypeScript",
-  "MongoDB",
-  "MySQL",
   "REST APIs",
   "GraphQL",
+  "MongoDB",
+  "MySQL",
+  "PostgreSQL",
 ];
 
 const data = [
   {
+    title: "Frontend",
     imageSrc: "/front.png",
     text: `
     No meu papel como desenvolvedora frontend, crio interfaces ricas e
@@ -41,6 +43,7 @@ const data = [
     skills: frontendSkills,
   },
   {
+    title: "Backend",
     imageSrc: "/back.png",
     text: `
     No backend, contribuo para o desenvolvimento de soluções com Node.js,
@@ -54,11 +57,11 @@ const data = [
 export function Skills() {
   return (
     <section className={styles.container}>
-      {data.map(({ imageSrc, text, skills }, index) => (
+      {data.map(({ imageSrc, text, skills, title }, index) => (
         <div key={`skill-item-${index}`}>
           <div className={styles.figure}>
             <Image src={imageSrc} width={80} height={80} alt="" />
-            <h1>Frontend</h1>
+            <h1>{title}</h1>
           </div>
           <p dangerouslySetInnerHTML={{ __html: text }} />
           <div className={styles.skills}>
